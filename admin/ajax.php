@@ -64,13 +64,13 @@ if($action == "delete_cat"){
 	if($save)
 		echo $save;
 }
-if($action == "save_doctor"){
-	$save = $crud->save_doctor();
+if($action == "save_designer"){
+	$save = $crud->save_designer();
 	if($save)
 		echo $save;
 }
-if($action == "delete_doctor"){
-	$save = $crud->delete_doctor();
+if($action == "delete_designer"){
+	$save = $crud->delete_designer();
 	if($save)
 		echo $save;
 }
@@ -89,16 +89,7 @@ if($action == "delete_appointment"){
 	if($save)
 		echo $save;
 }
-if($action == "update_appointment"){
-	$save = $crud->update_appointment();
-	if($save)
-		echo $save;
-}
-if($action == "delete_inv"){
-	$save = $crud->delete_inv();
-	if($save)
-		echo $save;
-}
+
 
 
 

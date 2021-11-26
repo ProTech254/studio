@@ -10,7 +10,7 @@ include ('admin/db_connect.php')
 	<div class="col-lg-12">
 		<div id="msg"></div>
 		<form action="" id="manage-appointment">
-			<input type="hidden" name="doctor_id" value="<?php echo $_GET['id'] ?>">
+			<input type="hidden" name="designer_id" value="<?php echo $_GET['id'] ?>">
 			<div class="form-group">
 				<label for="" class="control-label">Date</label>
 				<input type="date" value="" name="date" class="form-control" required>
