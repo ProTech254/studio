@@ -108,7 +108,7 @@ include 'includes/session.php';
 								<?php
 								$s = $connect->query("SELECT * from design_specialty where id = ".$_GET['sid'])->fetch_array()['name'];
 								?>
-								<h2><b>Doctor/'s who are in titled as <?php echo $s ?></b></h2>
+								<h2><b>Designers/'s who are in titled as <?php echo $s ?></b></h2>
 							</div>
 						</div>
 						<hr class="divider">
