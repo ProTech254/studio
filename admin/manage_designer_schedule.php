@@ -5,7 +5,7 @@
 </style>
 <?php 
 include 'db_connect.php';
-$qry = $conn->query("SELECT * FROM designers_schedule where doctor_id =".$_GET['did']);
+$qry = $conn->query("SELECT * FROM designers_schedule where designer_id =".$_GET['did']);
 $c = $qry->num_rows;
 while($row=$qry->fetch_assoc()){
 	$id[$row['day']] = $row['id'];
@@ -17,7 +17,7 @@ while($row=$qry->fetch_assoc()){
 ?>
 <div class="container-fluid">
 	<form  id="manage-schedule">
-		<input type="hidden" name="doctor_id" value="<?php echo $_GET['did'] ?>">
+		<input type="hidden" name="designer_id" value="<?php echo $_GET['did'] ?>">
 	<div class="col-lg-12">
 		<div class="row">
 			<div class="col-md-12">

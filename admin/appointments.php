@@ -35,7 +35,7 @@
 					?>
 					<tr>
 						<td><?php echo date("l M d, Y h:i A",strtotime($row['schedule'])) ?></td>
-						<td><?php echo "Ds. ".$doc_arr[$row['designer_id']]['name'].', '.$doc_arr[$row['designer_id']]['name'] ?></td>
+						<td><?php echo "Eng. ".$doc_arr[$row['designer_id']]['name'].', '.$doc_arr[$row['designer_id']]['name'] ?></td>
 						<td><?php echo $p_arr[$row['user_id']]['name'] ?></td>
 						<td>
 							<?php if($row['status'] == 0): ?>

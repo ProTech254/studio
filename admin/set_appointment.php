@@ -1,12 +1,12 @@
 <?php
 session_start();
 include ('db_connect.php');
-$doctor= $conn->query("SELECT * FROM designers_list ");
-	while($row = $doctor->fetch_assoc()){
+$designer= $conn->query("SELECT * FROM designers_list ");
+	while($row = $designer->fetch_assoc()){
 		$doc_arr[$row['id']] = $row;
 	}
-	$patient= $conn->query("SELECT * FROM users where type = 3 ");
-	while($row = $patient->fetch_assoc()){
+	$user= $conn->query("SELECT * FROM users where type = 3 ");
+	while($row = $user->fetch_assoc()){
 		$p_arr[$row['id']] = $row;
 	}
 	if(isset($_GET['id'])){
@@ -29,24 +29,24 @@ $doctor= $conn->query("SELECT * FROM designers_list ");
 		<form action="" id="manage-appointment">
 			<input type="hidden" name="id" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>">
 			<?php if($_SESSION['login_type'] == 2): ?>
-			<input type="hidden" name="doctor_id" value="<?php echo isset($_SESSION['login_doctor_id']) ? $_SESSION['login_doctor_id'] : ''; ?>">
+			<input type="hidden" name="designer_id" value="<?php echo isset($_SESSION['login_designer_id']) ? $_SESSION['login_designer_id'] : ''; ?>">
 				<?php else: ?>
 			<div class="form-group">
-				<label for="" class="control-label">Doctor</label>
-				<select class="browser-default custom-select select2" name="doctor_id">
+				<label for="" class="control-label">Designer</label>
+				<select class="browser-default custom-select select2" name="designer_id">
 					<option value=""></option>
 					<?php foreach($doc_arr as $row): ?>
-					<option value="<?php echo $row['id'] ?>" <?php echo isset($doctor_id) && $doctor_id == $row['id'] ? 'selected' : '' ?>><?php echo "D.s ".$row['name'].', '.$row['name'] ?></option>
+					<option value="<?php echo $row['id'] ?>" <?php echo isset($designer_id) && $designer_id == $row['id'] ? 'selected' : '' ?>><?php echo "D.s ".$row['name'].', '.$row['name'] ?></option>
 					<?php endforeach; ?>
 				</select>
 			</div>
 		<?php endif; ?>
 			<div class="form-group">
-				<label for="" class="control-label">Patient</label>
+				<label for="" class="control-label">User</label>
 				<select class="browser-default custom-select select2" name="patient_id">
 					<option value=""></option>
 					<?php foreach($p_arr as $row): ?>
-					<option value="<?php echo $row['id'] ?>" <?php echo isset($patient_id) && $patient_id == $row['id'] ? 'selected' : '' ?>><?php echo $row['name'] ?></option>
+					<option value="<?php echo $row['id'] ?>" <?php echo isset($user_id) && $user_id == $row['id'] ? 'selected' : '' ?>><?php echo $row['name'] ?></option>
 					<?php endforeach; ?>
 				</select>
 			</div>

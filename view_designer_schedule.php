@@ -5,7 +5,7 @@
 </style>
 <?php 
 	include'admin/db_connect.php';
-	$qry = $conn->query("SELECT * FROM designers_schedule where doctor_id=".$_GET['id']);
+	$qry = $conn->query("SELECT * FROM designers_schedule where designer_id=".$_GET['id']);
 ?>
 <div class="container-fluid">
 	<div class="col-lg-12">
@@ -29,12 +29,8 @@
 		</div>
 	<hr>
 		<div class="row">
-			<button class="btn btn-secondary btn-sm col-md-4 offset-md-4 " type="button" data-dismiss="modal" id="">Close</button>
+			
+			<button class="btn btn-secondary btn-sm col-md-3  " type="button" data-dismiss="modal" id="">Close</button>
 		</div>
 	</div>
 </div>
-<script>
-	$('#edit').click(function(){
-		uni_modal("Edit "+$('#uni_modal .modal-title').html(),'manage_doctor_schedule.php?did=<?php echo $_GET['id'] ?>','mid-large');
-	})
-</script>

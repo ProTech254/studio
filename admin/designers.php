@@ -132,7 +132,7 @@
 	}
 	img{
 		max-width:100px;
-		max-height:150px;
+		max-height: :150px;
 	}
 </style>
 <script>
@@ -190,7 +190,7 @@
 		cat.find("[name='name']").val($(this).attr('data-name'))
 		cat.find("[name='name_pref']").val($(this).attr('data-name_pref'))
 		cat.find("[name='email']").val($(this).attr('data-email'))
-		cat.find("[name='address']").val($(this).attr('data-clinic_address'))
+		cat.find("[name='address']").val($(this).attr('data-address'))
 		cat.find("[name='contact']").val($(this).attr('data-contact'))
 		cat.find("#cimg").attr("src","../assets/img/"+$(this).attr('data-img_path'))
 		
