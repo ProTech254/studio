@@ -1,12 +1,12 @@
 
 <?php 
 	include 'db_connect.php';
-	$designer= $conn->query("SELECT * FROM designers_list ");
-	while($row = $designer->fetch_assoc()){
+	$doctor= $conn->query("SELECT * FROM designers_list ");
+	while($row = $doctor->fetch_assoc()){
 		$doc_arr[$row['id']] = $row;
 	}
-	$user= $conn->query("SELECT * FROM users where type = 3 ");
-	while($row = $user->fetch_assoc()){
+	$patient= $conn->query("SELECT * FROM users where type = 3 ");
+	while($row = $patient->fetch_assoc()){
 		$p_arr[$row['id']] = $row;
 	}
 ?>
@@ -29,14 +29,14 @@
 					<?php 
 					$where = '';
 					if($_SESSION['login_type'] == 2)
-						$where = " where designer_id = ".$_SESSION['login_designer_id'];
+						$where = " where doctor_id = ".$_SESSION['login_doctor_id'];
 					$qry = $conn->query("SELECT * FROM appointment_list ".$where." order by id desc ");
 					while($row = $qry->fetch_assoc()):
 					?>
 					<tr>
 						<td><?php echo date("l M d, Y h:i A",strtotime($row['schedule'])) ?></td>
-						<td><?php echo "Ds. ".$doc_arr[$row['designer_id']]['name'].', '.$doc_arr[$row['designer_id']]['name'] ?></td>
-						<td><?php echo $p_arr[$row['user_id']]['name'] ?></td>
+						<td><?php echo "Ds. ".$doc_arr[$row['doctor_id']]['name'].', '.$doc_arr[$row['doctor_id']]['name'] ?></td>
+						<td><?php echo $p_arr[$row['patient_id']]['name'] ?></td>
 						<td>
 							<?php if($row['status'] == 0): ?>
 								<span class="badge badge-warning">Pending Request</span>

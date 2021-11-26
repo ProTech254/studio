@@ -60,7 +60,9 @@
     <ul class="navbar-nav mx-auto">
 				<li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
 				
-				<li class="nav-item"><a href="booking.php" class="nav-link">Booking Consultation</a></li>
+			  <li class="nav-item"><a href="booking.php" class="nav-link">Our Designers</a></li>
+				
+				<li class="nav-item"><a href="appointment.php" class="nav-link">Booking Consultation</a></li>
 
 				<li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
 
