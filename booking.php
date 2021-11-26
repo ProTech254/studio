@@ -65,8 +65,10 @@ include 'includes/session.php';
     <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav mx-auto">
 				<li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
+
+        <li class="nav-item"><a href="booking.php" class="nav-link">Our Designers</a></li>
 				
-				<li class="nav-item"><a href="booking.php" class="nav-link">Booking Consultation</a></li>
+				<li class="nav-item"><a href="appointment.php" class="nav-link">Booking Consultation</a></li>
 
 				<li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
 
@@ -97,7 +99,7 @@ include 'includes/session.php';
 	   </div>
 
 
-     <section class="page-section" id="doctors" style="padding-top:20px">
+     <section class="page-section" id="designers" style="padding-top:20px">
         <div class="container">
         	<div class="card">
         		<div class="card-body">
@@ -127,7 +129,7 @@ include 'includes/session.php';
 					<div class="col-md-6">
 						 <p>Name: <b><?php echo "".$row['name'] ?></b></p>
 						 <p><small>Email: <b><?php echo $row['email'] ?></b></small></p>
-						 <p><small> Address: <b><?php echo $row['address'] ?></b></small></p>
+						 <p><small>Address: <b><?php echo $row['clinic_address'] ?></b></small></p>
 						 <p><small>Contact #: <b><?php echo $row['contact'] ?></b></small></p>
 						 <p><small><a href="javascript:void(0)" class="view_schedule" data-id="<?php echo $row['id'] ?>" data-name="<?php echo "Dr. ".$row['name'].', '.$row['name_pref'] ?>"><i class='fa fa-calendar'></i> Schedule</a></b></small></p>
 						 <p><b>Specialties:</b></p>
@@ -143,7 +145,7 @@ include 'includes/session.php';
 						 </div>
 					</div>
 					<div class="col-md-3 text-center align-self-end-sm">
-						<button class="btn-outline-primary  btn  mb-4 set_appointment" type="button" data-id="<?php echo $row['id'] ?>"  data-name="<?php echo "Eng. ".$row['name'].', '.$row['name_pref'] ?>">Set Appointment</button>
+          <a  class="btn-outline-primary  btn  mb-4 set_appointment" href="appointment.php">Set Appointment</a>
 					</div>
 				</div>
 				<hr class="divider" style="max-width: 60vw">
@@ -153,8 +155,67 @@ include 'includes/session.php';
         	</div>
         </div>
     </section>
+
+    
+
+<!--- connectect -->
+
+<div class="container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-12">
+			<h2>connectect</h2>
+		</div>
+		<div class="col-12 social padding">
+			<a href="#"><i class="fab fa-facebook"></i></a>
+			<a href="#"><i class="fab fa-twitter"></i></a>
+			<a href="#"><i class="fab fa-google-plus-g"></i></a>
+			<a href="#"><i class="fab fa-instagram"></i></a>
+			<a href="#"><i class="fab fa-youtube"></i></a>
+		</div>
+	</div>
+</div>
+
+<!--- Footer -->
+
+<footer>
+	<div class="container-fluid padding">
+		<div class="row text-center">
+			<div class="col-md-4">
+				<img src="img/logo_neg.png" alt="Logo">
+				<hr class="light">
+				<p>555-555-5555</p>
+				<p>moskoy@moskofan.com</p>
+				<p>100 Agwan Street</p>
+				<p>Cpe, State, 000067</p>
+			</div>
+			<div class="col-md-4">
+				<hr class="light">
+				<h5>Our Hours</h5>
+				<hr class="light">
+				<p>Monday:8-5</p>
+				<p>Saturday:8-12</p>
+				<p>Sunday: Closed</p>
+			</div>
+			<div class="col-md-4">
+				<hr class="light">
+				<h5>Offices</h5>
+				<hr class="light">
+				<p>Cape, South Africa, 1234</p>
+				<p>Mexico, Mexico, 0844</p>
+				<p>Mexico, State, 4567</p>
+				<p>City, State, 6743</p>
+			</div>
+
+			<div class="col-12">
+				<hr class="light-100">
+				<h5>&copy; moskofyan.com</h5>
+			</div>
+		</div>
+	</div>
+</footer>
+
     <style>
-    	#doctors img{
+    	#designers img{
     		max-height: 300px;
     		max-width: 200px; 
     	}

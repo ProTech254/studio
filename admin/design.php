@@ -143,7 +143,7 @@
 		end_load()
 	})
 	$('.delete_cat').click(function(){
-		_conf("Are you sure to delete this design specialty?","delete_cat",[$(this).attr('data-id')])
+		_conf("Are you sure to delete this medical specialty?","delete_cat",[$(this).attr('data-id')])
 	})
 	function displayImg(input,_this) {
     if (input.files && input.files[0]) {

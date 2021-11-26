@@ -16,7 +16,7 @@
 							<input type="hidden" name="id">
 							<div class="form-group">
 								<label for="" class="control-label">Prefix</label>
-								<input type="text" class="form-control" name="name_pref" placeholder="(Eng.)" required="">
+								<input type="text" class="form-control" name="name_pref" placeholder="(D.s.)" required="">
 							</div>
 							<div class="form-group">
 								<label class="control-label">Name</label>
@@ -101,13 +101,13 @@
 									<td class="">
 										 <p>Name: <b><?php echo "".$row['name'].', '.$row['name_pref'] ?></b></p>
 										 <p><small>Email: <b><?php echo $row['email'] ?></b></small></p>
-										 <p><small>Address: <b><?php echo $row['address'] ?></b></small></p>
+										 <p><small>Address: <b><?php echo $row['clinic_address'] ?></b></small></p>
 										 <p><small>Contact #: <b><?php echo $row['contact'] ?></b></small></p>
 										 <p><small><a href="javascript:void(0)" class="view_schedule" data-id="<?php echo $row['id'] ?>" data-name="<?php echo "Dr. ".$row['name'].', '.$row['name_pref'] ?>"><i class='fa fa-calendar'></i> Schedule</a></b></small></p>
 
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-primary edit-doctor" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-name_pref="<?php echo $row['name_pref'] ?>" data-clinic_address="<?php echo $row['address'] ?>" data-contact="<?php echo $row['contact'] ?>"  data-img_path="<?php echo $row['img_path'] ?>" data-specialty_ids="<?php echo $row['specialty_ids'] ?>" data-email="<?php echo $row['email'] ?>">Edit</button>
+										<button class="btn btn-sm btn-primary edit-doctor" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-name_pref="<?php echo $row['name_pref'] ?>" data-clinic_address="<?php echo $row['clinic_address'] ?>" data-contact="<?php echo $row['contact'] ?>"  data-img_path="<?php echo $row['img_path'] ?>" data-specialty_ids="<?php echo $row['specialty_ids'] ?>" data-email="<?php echo $row['email'] ?>">Edit</button>
 										<button class="btn btn-sm btn-danger delete_doctor" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 									</td>
 								</tr>
@@ -142,15 +142,15 @@
 	})
 	function _reset(){
 		$('[name="id"]').val('');
-		$('#manage-designer').get(0).reset();
+		$('#manage-doctor').get(0).reset();
 	}
 	$('table').dataTable()
-	$('#manage-designer').submit(function(e){
+	$('#manage-doctor').submit(function(e){
 		e.preventDefault()
 		start_load()
 		$('#msg').html('')
 		$.ajax({
-			url:'ajax.php?action=save_designer',
+			url:'ajax.php?action=save_doctor',
 			data: new FormData($(this)[0]),
 		    cache: false,
 		    contentType: false,
@@ -182,9 +182,9 @@
 	        reader.readAsDataURL(input.files[0]);
 	    }
 	}
-	$('.edit-designer').click(function(){
+	$('.edit-doctor').click(function(){
 		start_load()
-		var cat = $('#manage-designer')
+		var cat = $('#manage-doctor')
 		cat.get(0).reset()
 		cat.find("[name='id']").val($(this).attr('data-id'))
 		cat.find("[name='name']").val($(this).attr('data-name'))
@@ -217,16 +217,16 @@
 	})
 
 	$('.view_schedule').click(function(){
-		uni_modal($(this).attr('data-name')+" - Schedule","view_designer_schedule.php?id="+$(this).attr('data-id'))
+		uni_modal($(this).attr('data-name')+" - Schedule","view_doctor_schedule.php?id="+$(this).attr('data-id'))
 	})
-	$('.delete_designer').click(function(){
-		_conf("Are you sure to delete this designer?","delete_designer",[$(this).attr('data-id')])
+	$('.delete_doctor').click(function(){
+		_conf("Are you sure to delete this doctor?","delete_doctor",[$(this).attr('data-id')])
 	})
 	
-	function delete_designer($id){
+	function delete_doctor($id){
 		start_load()
 		$.ajax({
-			url:'ajax.php?action=delete_designer',
+			url:'ajax.php?action=delete_doctor',
 			method:'POST',
 			data:{id:$id},
 			success:function(resp){
