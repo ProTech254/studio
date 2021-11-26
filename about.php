@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include 'includes/session.php';
 	$conn = $pdo->open();
 
@@ -59,20 +59,20 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav mx-auto">
 				<li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
-				
+
 			  <li class="nav-item"><a href="booking.php" class="nav-link">Our Designers</a></li>
-				
-				<li class="nav-item"><a href="appointment.php" class="nav-link">Booking Consultation</a></li>
+
+				<li class="nav-item"><a href="image.php" class="nav-link">Booking Consultation</a></li>
 
 				<li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
 
         <?php
             if(isset($_SESSION['user'])){
-           
+
               echo '
-			  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Welcome, '.$user['username'].'</a></li> 
+			  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Welcome, '.$user['username'].'</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout.php"><i class="fa fa-power-off"></i>Logout</a></li>
-				
+
               ';
             }
             else{
@@ -93,7 +93,7 @@
 	   </div>
 
 
-          
+
          <!-- Masthead-->
         <header class="masthead">
             <div class="container h-100">
@@ -102,18 +102,18 @@
                     	 <h1 class="text-uppercase text-white font-weight-bold">About Us</h1>
                         <hr class="divider my-4" />
                     </div>
-                    
+
                 </div>
             </div>
         </header>
 
     <section class="page-section">
         <div class="container">
- 
-    <p style="text-align: center; background: transparent; position: relative;"><span style="background: transparent; position: relative; font-size: 14px;"><span style="font-size:28px;background: transparent; position: relative;"><b style="margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;">Lorem Ipsum</b><span style="color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-weight: 400; text-align: justify;">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#x2019;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br></span></b></span></p><p style="text-align: center; background: transparent; position: relative;"><span style="background: transparent; position: relative; font-size: 14px;"><span style="font-size:28px;background: transparent; position: relative;"><span style="color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-weight: 400; text-align: justify;"><br></span></b></span></p><p style="text-align: center; background: transparent; position: relative;"><span style="background: transparent; position: relative; font-size: 14px;"><span style="font-size:28px;background: transparent; position: relative;"><h2 style="font-size:28px;background: transparent; position: relative;">Where does it come from?</h2><p style="text-align: center; margin-bottom: 15px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-weight: 400;">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p></span></b></span></p>        
-            
+
+    <p style="text-align: center; background: transparent; position: relative;"><span style="background: transparent; position: relative; font-size: 14px;"><span style="font-size:28px;background: transparent; position: relative;"><b style="margin: 0px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;">Lorem Ipsum</b><span style="color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-weight: 400; text-align: justify;">&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#x2019;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span><br></span></b></span></p><p style="text-align: center; background: transparent; position: relative;"><span style="background: transparent; position: relative; font-size: 14px;"><span style="font-size:28px;background: transparent; position: relative;"><span style="color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-weight: 400; text-align: justify;"><br></span></b></span></p><p style="text-align: center; background: transparent; position: relative;"><span style="background: transparent; position: relative; font-size: 14px;"><span style="font-size:28px;background: transparent; position: relative;"><h2 style="font-size:28px;background: transparent; position: relative;">Where does it come from?</h2><p style="text-align: center; margin-bottom: 15px; padding: 0px; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-weight: 400;">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p></span></b></span></p>
+
         </div>
-        </section>       
+        </section>
 
 <div class="modal fade" id="confirm_modal" role='dialog'>
     <div class="modal-dialog modal-md" role="document">
@@ -183,7 +183,7 @@
             <br>
             <div class="container"><div class="small text-center text-muted">Copyright © 2021 - </div></div>
         </footer>
-        
+
         <style>
    .modal-dialog.large {
     width: 80% !important;
@@ -196,5 +196,5 @@
  </style>
     </body>
 
-    
+
 </html>
