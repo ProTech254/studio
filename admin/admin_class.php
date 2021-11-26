@@ -177,11 +177,11 @@ Class Action {
 		if($delete)
 			return 1;
 	}
-	function save_doctor(){
+	function save_designer(){
 		extract($_POST);
 		$data = " name = '$name' ";
 		$data .= ", name_pref = '$name_pref' ";
-		$data .= ", clinic_address = '$clinic_address' ";
+		$data .= ", address = '$address' ";
 		$data .= ", contact = '$contact' ";
 		$data .= ", email = '$email' ";
 		if(!empty($_FILES['img']['tmp_name'])){
@@ -204,7 +204,7 @@ Class Action {
 			$data .= ", password = '".$password."' ";
 			$data .= ", name = 'DR.".$name.', '.$name_pref."' ";
 			$data .= ", contact = '$contact' ";
-			$data .= ", address = '$clinic_address' ";
+			$data .= ", address = '$address' ";
 			$data .= ", type = 2";
 			if(empty($id)){
 				$chk = $this->db->query("SELECT * FROM users where username = '$email ")->num_rows;
@@ -212,19 +212,19 @@ Class Action {
 					return 2;
 					exit;
 				}
-					$data .= ", doctor_id = '$did'";
+					$data .= ", designer_id = '$did'";
 
 					$save = $this->db->query("INSERT INTO users set ".$data);
 			}else{
-				$chk = $this->db->query("SELECT * FROM users where username = '$email' and doctor_id != ".$id)->num_rows;
+				$chk = $this->db->query("SELECT * FROM users where username = '$email' and designer_id != ".$id)->num_rows;
 				if($chk > 0){
 					return 2;
 					exit;
 				}
-					$data .= ", doctor_id = '$id'";
-				$chk2 = $this->db->query("SELECT * FROM users where doctor_id = ".$id)->num_rows;
+					$data .= ", designer_id = '$id'";
+				$chk2 = $this->db->query("SELECT * FROM users where designer_id = ".$id)->num_rows;
 					if($chk2 > 0)
-						$save = $this->db->query("UPDATE users set ".$data." where doctor_id = ".$id);
+						$save = $this->db->query("UPDATE users set ".$data." where designer_id = ".$id);
 					else
 						$save = $this->db->query("INSERT INTO users set ".$data);
 					
@@ -233,7 +233,7 @@ Class Action {
 			return 1;
 		}
 	}
-	function delete_doctor(){
+	function delete_designer(){
 		extract($_POST);
 		$delete = $this->db->query("DELETE FROM designers_list where id = ".$id);
 		if($delete)
@@ -243,7 +243,7 @@ Class Action {
 	function save_schedule(){
 		extract($_POST);
 		foreach($days as $k => $val){
-			$data = " doctor_id = '$doctor_id' ";
+			$data = " designer_id = '$designer_id' ";
 			$data .= ", day = '$days[$k]' ";
 			$data .= ", time_from = '$time_from[$k]' ";
 			$data .= ", time_to = '$time_to[$k]' ";
@@ -262,22 +262,21 @@ Class Action {
 
 	function set_appointment(){
 		extract($_POST);
-		$doc = $this->db->query("SELECT * FROM designers_list where id = ".$doctor_id);
+		$doc = $this->db->query("SELECT * FROM designers_list where id = ".$designer_id);
 		$schedule = date('Y-m-d',strtotime($date)).' '.date('H:i',strtotime($time)).":00";
 		$day = date('l',strtotime($date));
 		$time = date('H:i',strtotime($time)).":00";
 		$sched = date('H:i',strtotime($time));
-		$doc_sched_check = $this->db->query("SELECT * FROM designers_schedule where doctor_id = $doctor_id and day = '$day' and ('$time' BETWEEN time_from and time_to )");
+		$doc_sched_check = $this->db->query("SELECT * FROM designers_schedule where designer_id = $designer_id and day = '$day' and ('$time' BETWEEN time_from and time_to )");
 		if($doc_sched_check->num_rows <= 0){
-			return json_encode(array('status'=>2,"msg"=>"Appointment schedule not valid for selected doctor's schedule."));
+			return json_encode(array('status'=>2,"msg"=>"Appointment schedule not valid for selected designer's schedule."));
 			exit;
 		}
 
-		$data = " doctor_id = '$doctor_id' ";
-		if(!isset($patient_id))
-		$data .= ", patient_id = '".$_SESSION['login_id']."' ";
-		else
-		$data .= ", patient_id = '$patient_id' ";
+		$data = " designer_id = '$designer_id' ";
+		if(isset($user_id))
+
+		$data .= ", user_id = '$user_id' ";
 
 		$data .= ", schedule = '$schedule' ";
 		if(isset($status))
