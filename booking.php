@@ -1,5 +1,5 @@
 
-<?php include 'db_connect.php'; 
+<?php include 'db_connect.php';
 
 $special = $connect->query("SELECT * FROM design_specialty");
 $ms_arr = array();
@@ -67,18 +67,18 @@ include 'includes/session.php';
 				<li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
 
         <li class="nav-item"><a href="booking.php" class="nav-link">Our Designers</a></li>
-				
-				<li class="nav-item"><a href="appointment.php" class="nav-link">Booking Consultation</a></li>
+
+			<li class="nav-item"><a href="image.php" class="nav-link"> Add Post</a></li>
 
 				<li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
 
 				<?php
             if(isset($_SESSION['user'])){
-           
+
               echo '
-			  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Welcome, '.$user['username'].'</a></li> 
+			  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Welcome, '.$user['username'].'</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout.php"><i class="fa fa-power-off"></i>Logout</a></li>
-				
+
               ';
             }
             else{
@@ -115,7 +115,7 @@ include 'includes/session.php';
 						</div>
 						<hr class="divider">
 						<?php endif; ?>
-				<?php 
+				<?php
 				$where = "";
 				if(isset($_GET['sid']) && $_GET['sid'] > 0)
 				$where = " where  (REPLACE(REPLACE(REPLACE(specialty_ids,',','\",\"'),'[','[\"'),']','\"]')) LIKE '%\"".$_GET['sid']."\"%' ";
@@ -136,8 +136,8 @@ include 'includes/session.php';
 
 						 <div>
 						 	<?php if(!empty($row['specialty_ids'])): ?>
-						 	<?php 
-						 	foreach(explode(",", str_replace(array("[","]"),"",$row['specialty_ids'])) as $k => $val): 
+						 	<?php
+						 	foreach(explode(",", str_replace(array("[","]"),"",$row['specialty_ids'])) as $k => $val):
 						 	?>
 						 	<span class="badge badge-light" style="padding: 10px"><large><b><?php echo $ms_arr[$val] ?></b></large></span>
 						 	<?php endforeach; ?>
@@ -156,7 +156,7 @@ include 'includes/session.php';
         </div>
     </section>
 
-    
+
 
 <!--- connectect -->
 
@@ -217,11 +217,11 @@ include 'includes/session.php';
     <style>
     	#designers img{
     		max-height: 300px;
-    		max-width: 200px; 
+    		max-width: 200px;
     	}
     </style>
     <script>
-        
+
        $('.view_schedule').click(function(){
 			uni_modal($(this).attr('data-name')+" - Schedule","view_designer_schedule.php?id="+$(this).attr('data-id'))
 		})
@@ -292,7 +292,7 @@ include 'includes/session.php';
             if(resp){
                 $('#uni_modal_right .modal-title').html($title)
                 $('#uni_modal_right .modal-body').html(resp)
-                
+
                 $('#uni_modal_right').modal('show')
                 end_load()
             }
@@ -341,4 +341,3 @@ window.alert_toast= function($msg = 'TEST',$bg = 'success'){
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-

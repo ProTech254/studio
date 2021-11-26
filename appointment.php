@@ -74,20 +74,20 @@ $doctor= $connect->query("SELECT * FROM designers_list ");
     <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav mx-auto">
 				<li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
-				
+
                 <li class="nav-item"><a href="booking.php" class="nav-link">Our Designers</a></li>
-				
+
 				<li class="nav-item"><a href="appointment.php" class="nav-link">Booking Consultation</a></li>
 
 				<li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
 
 				<?php
             if(isset($_SESSION['user'])){
-           
+
               echo '
-			  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Welcome, '.$user['username'].'</a></li> 
+			  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Welcome, '.$user['username'].'</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout.php"><i class="fa fa-power-off"></i>Logout</a></li>
-				
+
               ';
             }
             else{
@@ -110,7 +110,7 @@ $doctor= $connect->query("SELECT * FROM designers_list ");
         <center>
         <main id="main" class=" bg-dark" style="padding:50px">
   		<div id="login-left">
-  			
+
   		</div>
   		<div id="login-right">
   			<div class="card col-md-8">
@@ -145,7 +145,7 @@ $doctor= $connect->query("SELECT * FROM designers_list ");
 								<label for="" class="control-label">Add Image</label>
 								<input type="file" class="form-control" name="img" onchange="displayImg(this,$(this))">
 							</div>
-              
+
   						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Book an Appointment</button></center>
   					</form>
   				</div>
@@ -155,7 +155,7 @@ $doctor= $connect->query("SELECT * FROM designers_list ");
         </center>
 
 
-        
+
 
 <!--- connectect -->
 
@@ -222,4 +222,3 @@ $doctor= $connect->query("SELECT * FROM designers_list ");
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-

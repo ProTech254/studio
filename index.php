@@ -1,4 +1,4 @@
-<?php include 'db_connect.php'; 
+<?php include 'db_connect.php';
 
 	$special = $connect->query("SELECT * FROM design_specialty");
 	$ms_arr = array();
@@ -7,7 +7,7 @@
 	}
 
 	include 'includes/session.php';
-	
+
 ?>
 
 <!DOCTYPE html>
@@ -53,23 +53,23 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav mx-auto">
 				<li class="nav-item"><a href="index.php" class="nav-link active">Home</a></li>
-				
+
 				<li class="nav-item"><a href="booking.php" class="nav-link">Our Designers</a></li>
-				
-				<li class="nav-item"><a href="appointment.php" class="nav-link">Booking Consultation</a></li>
+
+			<li class="nav-item"><a href="image.php" class="nav-link"> Add Post</a></li>
 
 				<li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
 
-			
 
-			
+
+
 			<?php
             if(isset($_SESSION['user'])){
-           
+
               echo '
-			  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Welcome, '.$user['username'].'</a></li> 
+			  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Welcome, '.$user['username'].'</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout.php"><i class="fa fa-power-off"></i>Logout</a></li>
-				
+
               ';
             }
             else{
@@ -114,7 +114,7 @@
 							<a href="#" class="btn btn-outline-light btn-lg">View More</a>
 						</div>
 					</div>
-				
+
 				</div>
 			</div>
 		</div>
@@ -130,7 +130,7 @@
 							<a href="#" class="btn btn-outline-light btn-lg">View More</a>
 						</div>
 					</div>
-				
+
 				</div>
 			</div>
 		</div>
@@ -140,13 +140,13 @@
 				<div class="container">
 					<div class="row justify-content-start">
 						<div class="col-sm-12 col-md-8 bg-custom  py-3 px-0">
-							
-							
+
+
 							<h3 class="pb-3">Preparation of Complete <br> Documentation</h3>
 							<a href="#" class="btn btn-outline-light btn-lg">View More</a>
 						</div>
 					</div>
-				
+
 				</div>
 			</div>
 		</div>
@@ -162,7 +162,7 @@
 							<a href="#" class="btn btn-outline-light btn-lg">View More</a>
 						</div>
 					</div>
-				
+
 				</div>
 			</div>
 		</div>
@@ -173,11 +173,11 @@
 					<div class="row justify-content-center">
 						<div class="col-sm-12 col-md-8 bg-custom  py-3 px-0">
 							<h1>Our Teem</h1>
-							
+
 							<a href="#" class="btn btn-outline-light btn-lg">View More</a>
 						</div>
 					</div>
-				
+
 				</div>
 			</div>
 		</div>
@@ -208,7 +208,7 @@
 <div class="container test">
 	<div class="row my-5">
 
-				<?php 
+				<?php
 				$where = "";
 				if(isset($_GET['sid']) && $_GET['sid'] > 0)
 				$where = " where  (REPLACE(REPLACE(REPLACE(specialty_ids,',','\",\"'),'[','[\"'),']','\"]')) LIKE '%\"".$_GET['sid']."\"%' ";
@@ -217,13 +217,13 @@
 				?>
 		<div class="col-md-4 my-4">
 			<a href="#"><img src="<?php echo $row['img'] ?>" alt="" class="w-100"></a>
-			
+
 			 <h4 class="my-4"><?php echo $row['title'] ?></h4>
 			<p class="lead"><?php echo $row['details'] ?></p>
 			<a href="#" class="btn btn-outline-primary btn-md">To Gallery</a>
 		</div>
 		<?php endwhile; ?>
-	
+
 
 
 
@@ -242,7 +242,7 @@
 
 <div class="container test">
 	<div class="row my-5">
-	<?php 
+	<?php
 				$where = "";
 				if(isset($_GET['sid']) && $_GET['sid'] > 0)
 				$where = " where  (REPLACE(REPLACE(REPLACE(specialty_ids,',','\",\"'),'[','[\"'),']','\"]')) LIKE '%\"".$_GET['sid']."\"%' ";
@@ -255,7 +255,7 @@
 			<h4 class="my-4"> <?php echo $row['title'] ?> </h4>
 			<p class="lead"> <?php echo $row['details'] ?> </p>
 			<a href="#" class="btn btn-outline-primary btn-md">To Gallery</a>
-		
+
 		</div>
 
 		<?php endwhile; ?>
@@ -288,7 +288,7 @@
 <section class="team pb-5">
 
 	<div class="row">
-	<?php 
+	<?php
 				$where = "";
 				if(isset($_GET['sid']) && $_GET['sid'] > 0)
 				$where = " where  (REPLACE(REPLACE(REPLACE(specialty_ids,',','\",\"'),'[','[\"'),']','\"]')) LIKE '%\"".$_GET['sid']."\"%' ";
@@ -304,7 +304,7 @@
 
 		<?php endwhile; ?>
 
-	
+
 	</div>
 </section>
 
@@ -317,7 +317,7 @@
 			<p>Struggle to Achieve</p>
 			<p>The sky is the limit.</p>
 			<br>
-	
+
 
 		</div>
 		<div class="col-lg-6">
@@ -387,6 +387,3 @@
 
 </body>
 </html>
-
-
-
