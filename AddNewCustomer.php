@@ -1,8 +1,6 @@
 
 
 <?php
-
-
 include 'includes/session.php';
 
 if(isset($_POST['signup'])){
@@ -35,7 +33,7 @@ if(isset($_POST['signup'])){
 			$password = password_hash($password, PASSWORD_DEFAULT);
 
 			//generate code
-			
+
 			try{
 				$stmt = $conn->prepare("INSERT INTO users (username, password, name, created_on) VALUES (:username, :password, :name, :now)");
 				$stmt->execute(['username'=>$username, 'password'=>$password, 'name'=>$name, 'now'=>$now]);
