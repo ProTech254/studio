@@ -107,8 +107,8 @@
 
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-primary edit-doctor" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-name_pref="<?php echo $row['name_pref'] ?>" data-address="<?php echo $row['address'] ?>" data-contact="<?php echo $row['contact'] ?>"  data-img_path="<?php echo $row['img_path'] ?>" data-specialty_ids="<?php echo $row['specialty_ids'] ?>" data-email="<?php echo $row['email'] ?>">Edit</button>
-										<button class="btn btn-sm btn-danger delete_doctor" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
+										<button class="btn btn-sm btn-primary edit-designer" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-name_pref="<?php echo $row['name_pref'] ?>" data-address="<?php echo $row['address'] ?>" data-contact="<?php echo $row['contact'] ?>"  data-img_path="<?php echo $row['img_path'] ?>" data-specialty_ids="<?php echo $row['specialty_ids'] ?>" data-email="<?php echo $row['email'] ?>">Edit</button>
+										<button class="btn btn-sm btn-danger delete_designer" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 									</td>
 								</tr>
 								<?php endwhile; ?>
@@ -219,11 +219,11 @@
 	$('.view_schedule').click(function(){
 		uni_modal($(this).attr('data-name')+" - Schedule","view_designer_schedule.php?id="+$(this).attr('data-id'))
 	})
-	$('.delete_doctor').click(function(){
+	$('.delete_designer').click(function(){
 		_conf("Are you sure to delete this designer?","delete_designer",[$(this).attr('data-id')])
 	})
 	
-	function delete_doctor($id){
+	function delete_designer($id){
 		start_load()
 		$.ajax({
 			url:'ajax.php?action=delete_designer',

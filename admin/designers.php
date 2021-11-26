@@ -36,7 +36,7 @@
 							</div>
 							<div class="form-group">
 								<label class="control-label">Address</label>
-								<textarea name="clinic_address" id="" cols="30" rows="2" class="form-control" required=""></textarea>
+								<textarea name="_address" id="" cols="30" rows="2" class="form-control" required=""></textarea>
 							</div>
 							<div class="form-group">
 								<label for="" class="control-label">Contact</label>
@@ -101,13 +101,13 @@
 									<td class="">
 										 <p>Name: <b><?php echo "".$row['name'].', '.$row['name_pref'] ?></b></p>
 										 <p><small>Email: <b><?php echo $row['email'] ?></b></small></p>
-										 <p><small>Address: <b><?php echo $row['clinic_address'] ?></b></small></p>
+										 <p><small>Address: <b><?php echo $row['address'] ?></b></small></p>
 										 <p><small>Contact #: <b><?php echo $row['contact'] ?></b></small></p>
 										 <p><small><a href="javascript:void(0)" class="view_schedule" data-id="<?php echo $row['id'] ?>" data-name="<?php echo "Dr. ".$row['name'].', '.$row['name_pref'] ?>"><i class='fa fa-calendar'></i> Schedule</a></b></small></p>
 
 									</td>
 									<td class="text-center">
-										<button class="btn btn-sm btn-primary edit-doctor" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-name_pref="<?php echo $row['name_pref'] ?>" data-clinic_address="<?php echo $row['clinic_address'] ?>" data-contact="<?php echo $row['contact'] ?>"  data-img_path="<?php echo $row['img_path'] ?>" data-specialty_ids="<?php echo $row['specialty_ids'] ?>" data-email="<?php echo $row['email'] ?>">Edit</button>
+										<button class="btn btn-sm btn-primary edit-doctor" type="button" data-id="<?php echo $row['id'] ?>" data-name="<?php echo $row['name'] ?>" data-name_pref="<?php echo $row['name_pref'] ?>" data-address="<?php echo $row['address'] ?>" data-contact="<?php echo $row['contact'] ?>"  data-img_path="<?php echo $row['img_path'] ?>" data-specialty_ids="<?php echo $row['specialty_ids'] ?>" data-email="<?php echo $row['email'] ?>">Edit</button>
 										<button class="btn btn-sm btn-danger delete_doctor" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 									</td>
 								</tr>
