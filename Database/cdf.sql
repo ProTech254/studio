@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2021 at 08:22 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.1
+-- Generation Time: Nov 26, 2021 at 05:17 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -72,8 +72,8 @@ INSERT INTO `appointments` (`id`, `first_name`, `last_name`, `app_date`, `status
 
 CREATE TABLE `appointment_list` (
   `id` int(30) NOT NULL,
-  `doctor_id` int(30) NOT NULL,
-  `patient_id` int(30) NOT NULL,
+  `designer_id` int(30) NOT NULL,
+  `user_id` int(30) NOT NULL,
   `schedule` datetime NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '0= for verification, 1=confirmed,2= reschedule,3=done',
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
@@ -83,10 +83,8 @@ CREATE TABLE `appointment_list` (
 -- Dumping data for table `appointment_list`
 --
 
-INSERT INTO `appointment_list` (`id`, `doctor_id`, `patient_id`, `schedule`, `status`, `date_created`) VALUES
-(5, 2, 7, '2020-09-30 11:00:00', 1, '2020-09-24 15:20:52'),
-(7, 2, 7, '2020-09-28 10:00:00', 2, '2020-09-24 16:39:00'),
-(9, 2, 7, '2020-10-12 13:00:00', 0, '2020-09-24 16:43:21');
+INSERT INTO `appointment_list` (`id`, `designer_id`, `user_id`, `schedule`, `status`, `date_created`) VALUES
+(5, 2, 7, '2020-09-30 11:00:00', 2, '2020-09-24 15:20:52');
 
 -- --------------------------------------------------------
 
@@ -98,7 +96,7 @@ CREATE TABLE `designers_list` (
   `id` int(30) NOT NULL,
   `name` text NOT NULL,
   `name_pref` varchar(100) NOT NULL,
-  `clinic_address` text NOT NULL,
+  `address` text NOT NULL,
   `contact` text NOT NULL,
   `email` text NOT NULL,
   `specialty_ids` text NOT NULL,
@@ -110,10 +108,10 @@ CREATE TABLE `designers_list` (
 -- Dumping data for table `designers_list`
 --
 
-INSERT INTO `designers_list` (`id`, `name`, `name_pref`, `clinic_address`, `contact`, `email`, `specialty_ids`, `img_path`, `date_created`) VALUES
-(2, 'Stoyan Moskofyan', 'D.s.', 'Sample Clinic Address', '+1456 554 55623', 'jsmith@sample.com', '[6,1]', 'img/team1.png', '2020-09-24 09:52:00'),
-(3, 'Sonya Kuchukova', 'D.s.', 'Sample Only', '+5465 555 623', 'cblake@sample.com', '[4,1]', 'img/team2.png', '2020-09-24 13:07:21'),
-(4, 'Garbis Moskofyan', 'D.s.', 'Sample Only', '+5465 555 623', 'cblake@sample.com', '[4,1]', 'img/team3.png', '2020-09-24 13:07:21');
+INSERT INTO `designers_list` (`id`, `name`, `name_pref`, `address`, `contact`, `email`, `specialty_ids`, `img_path`, `date_created`) VALUES
+(2, 'Stoyan Moskofyan', 'D.s.', '416, Nairobi', '+1456 554 55623', 'jsmith@sample.com', '[6,1]', 'img/team1.png', '2020-09-24 09:52:00'),
+(3, 'Sonya Kuchukova', 'D.s.', '679,Bungoma', '+5465 555 623', 'cblake@sample.com', '[4,1]', 'img/team2.png', '2020-09-24 13:07:21'),
+(4, 'Garbis Moskofyan', 'D.s.', '590,Nyakach', '+5465 555 623', 'cblake@sample.com', '[4,1]', 'img/team3.png', '2020-09-24 13:07:21');
 
 -- --------------------------------------------------------
 
@@ -123,7 +121,7 @@ INSERT INTO `designers_list` (`id`, `name`, `name_pref`, `clinic_address`, `cont
 
 CREATE TABLE `designers_schedule` (
   `id` int(30) NOT NULL,
-  `doctor_id` int(30) NOT NULL,
+  `designer_id` int(30) NOT NULL,
   `day` varchar(20) NOT NULL,
   `time_from` time NOT NULL,
   `time_to` time NOT NULL
@@ -133,7 +131,7 @@ CREATE TABLE `designers_schedule` (
 -- Dumping data for table `designers_schedule`
 --
 
-INSERT INTO `designers_schedule` (`id`, `doctor_id`, `day`, `time_from`, `time_to`) VALUES
+INSERT INTO `designers_schedule` (`id`, `designer_id`, `day`, `time_from`, `time_to`) VALUES
 (3, 2, 'Monday', '10:00:00', '17:00:00'),
 (4, 2, 'Wednesday', '10:00:00', '17:00:00'),
 (5, 3, 'Monday', '10:00:00', '15:00:00'),
@@ -183,7 +181,21 @@ CREATE TABLE `design_specialty` (
 INSERT INTO `design_specialty` (`id`, `name`, `img_path`) VALUES
 (1, 'Interior Designer', '1600909800_estetoscópio-dos-instrumentos-médicos-à-disposição-do-bebê-recém-nascido-57898568.jpg'),
 (4, '3D Exterior Designer', '1600910640_human-anatomy-orthopedic-vector-16867686.jpg'),
-(6, 'External Designer', '1600910100_human-heart-illustration-png-clip-art.png');
+(6, 'External Designer', '1600910100_human-heart-illustration-png-clip-art.png'),
+(7, 'Photography', '1637934240_Screenshot from 2021-11-19 07-20-29.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL,
+  `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `uploaded_on` datetime NOT NULL,
+  `status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -193,7 +205,7 @@ INSERT INTO `design_specialty` (`id`, `name`, `img_path`) VALUES
 
 CREATE TABLE `users` (
   `id` int(30) NOT NULL,
-  `doctor_id` int(30) NOT NULL,
+  `designer_id` int(30) NOT NULL,
   `name` varchar(200) NOT NULL,
   `address` text NOT NULL,
   `contact` text NOT NULL,
@@ -206,10 +218,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `doctor_id`, `name`, `address`, `contact`, `username`, `password`, `type`) VALUES
+INSERT INTO `users` (`id`, `designer_id`, `name`, `address`, `contact`, `username`, `password`, `type`) VALUES
 (1, 0, 'Administrator', '', '', 'admin', 'admin123', 1),
 (7, 0, 'DR.James Smith, M.D.', 'Sample Clinic Address', '+1456 554 55623', 'user', '$2y$10$umVxCY1JIAguKDaaoxNQkOll74jqu4LIu4DG12PyP0qHSx1JySrH6', 3),
-(10, 3, 'DR.Claire Blake, M.D.', 'Sample Only', '+5465 555 623', 'cblake@sample.com', 'blake123', 2);
+(10, 3, 'DR.Claire Blake, M.D.', 'Sample Only', '+5465 555 623', 'cblake@sample.com', 'blake123', 2),
+(12, 0, 'ygfffgf', '', '', 'adminqww', '123456', 2);
 
 --
 -- Indexes for dumped tables
@@ -255,6 +268,12 @@ ALTER TABLE `designs`
 -- Indexes for table `design_specialty`
 --
 ALTER TABLE `design_specialty`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -307,13 +326,19 @@ ALTER TABLE `designs`
 -- AUTO_INCREMENT for table `design_specialty`
 --
 ALTER TABLE `design_specialty`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
