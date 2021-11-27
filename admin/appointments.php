@@ -1,5 +1,5 @@
 
-<?php 
+<?php
 	include 'db_connect.php';
 	$designer= $conn->query("SELECT * FROM designers_list ");
 	while($row = $designer->fetch_assoc()){
@@ -26,7 +26,7 @@
 						<th>Action</th>
 					</tr>
 					</thead>
-					<?php 
+					<?php
 					$where = '';
 					if($_SESSION['login_type'] == 2)
 						$where = " where designer_id = ".$_SESSION['login_designer_id'];
