@@ -83,8 +83,7 @@ $doctor= $connect->query("SELECT * FROM designers_list ");
 
 				<?php
             if(isset($_SESSION['user'])){
-
-              echo '
+				echo '
 			  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Welcome, '.$user['username'].'</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="logout.php"><i class="fa fa-power-off"></i>Logout</a></li>
 
@@ -148,7 +147,7 @@ $doctor= $connect->query("SELECT * FROM designers_list ");
 <div class="container-fluid padding">
 	<div class="row text-center padding">
 		<div class="col-12">
-			<h2>connectect</h2>
+			<h2>connect</h2>
 		</div>
 		<div class="col-12 social padding">
 			<a href="#"><i class="fab fa-facebook"></i></a>
