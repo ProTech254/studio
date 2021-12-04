@@ -4,12 +4,12 @@
 	if(isset($_POST['submit'])){
 		$title = $_POST['title'];
 		$details = $_POST['details'];
-		$ing = $_FILES['photo']['name'];
+		$ing = $_FILES['img']['name'];
 
 		$conn = $pdo->open();
 
 		$stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM designs WHERE title=:title");
-		$stmt->execute(['slug'=>$slug]);
+		$stmt->execute(['title'=>$title]);
 		$row = $stmt->fetch();
 
 		if($row['numrows'] > 0){
@@ -18,8 +18,8 @@
 		else{
 			if(!empty($img)){
 				$ext = pathinfo($img, PATHINFO_EXTENSION);
-				$new_filename = $slug.'.'.$ext;
-				move_uploaded_file($_FILES['photo']['tmp_name'], 'assets/img/'.$new_filename);	
+				$new_filename = $title.'.'.$ext;
+				move_uploaded_file($_FILES['img']['tmp_name'], 'assets/img/'.$new_filename);	
 			}
 			else{
 				$new_filename = '';
