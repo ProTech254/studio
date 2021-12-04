@@ -1,23 +1,7 @@
-<?php
-session_start();
-include ('db_connect.php');
-$doctor= $connect->query("SELECT * FROM designers_list ");
-	while($row = $doctor->fetch_assoc()){
-		$doc_arr[$row['id']] = $row;
-	}
-	$patient= $connect->query("SELECT * FROM users where type = 3 ");
-	while($row = $patient->fetch_assoc()){
-		$p_arr[$row['id']] = $row;
-	}
-	if(isset($_GET['id'])){
-	$qry = $connect->query("SELECT * FROM appointment_list where id =".$_GET['id']);
-	foreach ($qry->fetch_array() as $key => $value) {
-		$$key = $value;
-	}
+<?php include 'includes/session.php'; ?>
 
-	}
 
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -114,8 +98,26 @@ $doctor= $connect->query("SELECT * FROM designers_list ");
   		<div id="login-right">
   			<div class="card col-md-8">
   				<div class="card-body">
+				<?php
+					if(isset($_SESSION['error'])){
+						echo "
+						<div class='callout callout-danger text-center'>
+							<p>".$_SESSION['error']."</p>
+						</div>
+						";
+						unset($_SESSION['error']);
+					}
 
-  					<form id="login-form" action="setappointment.php" method="POST">
+					if(isset($_SESSION['success'])){
+						echo "
+						<div class='callout callout-success text-center'>
+							<p>".$_SESSION['success']."</p>
+						</div>
+						";
+						unset($_SESSION['success']);
+					}
+					?>
+  					<form id="login-form" action="addpost.php" method="POST">
   						<div class="form-group">
   							<label for="username" class="control-label">Title</label>
   							<input type="text" id="username" name="username" class="form-control">
@@ -131,7 +133,7 @@ $doctor= $connect->query("SELECT * FROM designers_list ");
 								<input type="file" class="form-control" name="img" onchange="displayImg(this,$(this))">
 							</div>
 
-  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary">Submit</button></center>
+  						<center><button class="btn-sm btn-block btn-wave col-md-4 btn-primary" name ="submit">Submit</button></center>
   					</form>
   				</div>
   			</div>
