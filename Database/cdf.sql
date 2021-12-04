@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2021 at 05:17 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Dec 04, 2021 at 09:01 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -205,13 +205,13 @@ CREATE TABLE `images` (
 
 CREATE TABLE `users` (
   `id` int(30) NOT NULL,
-  `designer_id` int(30) NOT NULL,
-  `name` varchar(200) NOT NULL,
-  `address` text NOT NULL,
-  `contact` text NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `password` varchar(200) NOT NULL,
-  `type` tinyint(1) NOT NULL DEFAULT 2 COMMENT '1=admin , 2 = doctor,3=patient'
+  `designer_id` int(30) DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `contact` text DEFAULT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL,
+  `type` tinyint(1) DEFAULT 2 COMMENT '1=admin , 2 = doctor,3=patient'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -222,7 +222,11 @@ INSERT INTO `users` (`id`, `designer_id`, `name`, `address`, `contact`, `usernam
 (1, 0, 'Administrator', '', '', 'admin', 'admin123', 1),
 (7, 0, 'DR.James Smith, M.D.', 'Sample Clinic Address', '+1456 554 55623', 'user', '$2y$10$umVxCY1JIAguKDaaoxNQkOll74jqu4LIu4DG12PyP0qHSx1JySrH6', 3),
 (10, 3, 'DR.Claire Blake, M.D.', 'Sample Only', '+5465 555 623', 'cblake@sample.com', 'blake123', 2),
-(12, 0, 'ygfffgf', '', '', 'adminqww', '123456', 2);
+(12, 0, 'ygfffgf', '', '', 'adminqww', '123456', 2),
+(13, NULL, 'Ericf', NULL, NULL, 'saassdas', '$2y$10$mR52HQLQWWJSrmFA.qBDa.GCcPjVOOaohV2qbTu6p1uEQDDzcWx6m', 2),
+(14, NULL, 'Ericf', '526', NULL, 'saassdas1', '$2y$10$Dtdacl7otOs5Vem9nojGo.Mxo3djdnUttxXXhvJZvFdEEnianBAnu', 2),
+(15, NULL, 'Ericf', '722', '0785963245', 'saassdas145', '$2y$10$aICc9xnqx7uWZgF3OxrgceMK6WAJ1pfWHu7wz3yV1V4XDjStdsAd2', 2),
+(16, NULL, 'erff', '745', '0785963245', 'abc', '$2y$10$qrDblX6g/wh6DCVK4fC9..EgBDBvX65NObNtAzIiUEsJGVyPD6X9q', 2);
 
 --
 -- Indexes for dumped tables
@@ -338,7 +342,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,9 +1,12 @@
 
+<?php include 'includes/session.php'; ?>
 <?php
   if(isset($_SESSION['user'])){
     header('location: index.php');
   }
 ?>
+
+
 <!doctype html>
 <html>
 <head>
@@ -51,7 +54,7 @@
     	<form action="AddNewCustomer.php" method="POST">
 
 		      <div class="form-group has-feedback">
-          <input type="text" class="form-control" name="email" placeholder="Username or Email" value="<?php echo (isset($_SESSION['username'])) ? $_SESSION['username'] : '' ?>" required>
+          <input type="text" class="form-control" name="username" placeholder="Username or Email" value="<?php echo (isset($_SESSION['username'])) ? $_SESSION['username'] : '' ?>" required>
         	<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       		</div>
 
@@ -59,7 +62,14 @@
             <input type="text" class="form-control" name="name" placeholder="Full names" value="<?php echo (isset($_SESSION['name'])) ? $_SESSION['name'] : '' ?>"  required>
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
           </div>
-
+          <div class="form-group has-feedback">
+            <input type="text" class="form-control" name="address" placeholder="address" value="<?php echo (isset($_SESSION['address'])) ? $_SESSION['name'] : '' ?>"  required>
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="text" class="form-control" name="contact" placeholder="Contact Number" value="<?php echo (isset($_SESSION['contact'])) ? $_SESSION['name'] : '' ?>"  required>
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
           <div class="form-group has-feedback">
             <input type="password" class="form-control" name="password" placeholder="Password" required>
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>

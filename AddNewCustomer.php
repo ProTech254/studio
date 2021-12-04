@@ -7,6 +7,8 @@ if(isset($_POST['signup'])){
 
 	$name = $_POST['name'];
 	$username = $_POST['username'];
+	$address = $_POST['address'];
+	$contact = $_POST['contact'];
 	$password = $_POST['password'];
 	$repassword = $_POST['repassword'];
 
@@ -35,8 +37,8 @@ if(isset($_POST['signup'])){
 			//generate code
 
 			try{
-				$stmt = $conn->prepare("INSERT INTO users (username, password, name, created_on) VALUES (:username, :password, :name, :now)");
-				$stmt->execute(['username'=>$username, 'password'=>$password, 'name'=>$name, 'now'=>$now]);
+				$stmt = $conn->prepare("INSERT INTO users (username, password, name, contact, address) VALUES (:username, :password, :name, :contact, :address)");
+				$stmt->execute(['username'=>$username, 'password'=>$password, 'address'=>$address, 'contact'=>$contact, 'name'=>$name]);
 				$userid = $conn->lastInsertId();
 
 				header('location: login.php');
