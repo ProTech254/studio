@@ -19,7 +19,7 @@
 			if(!empty($img)){
 				$ext = pathinfo($img, PATHINFO_EXTENSION);
 				$new_filename = $title.'.'.$ext;
-				move_uploaded_file($_FILES['img']['tmp_name'], 'assets/img/'.$new_filename);	
+				move_uploaded_file($_FILES['img']['tmp_name'], '../assets/img/'.$new_filename);	
 			}
 			else{
 				$new_filename = '';

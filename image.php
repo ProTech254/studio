@@ -122,10 +122,10 @@
   							<label for="username" class="control-label">Title</label>
   							<input type="text" id="title" name="title" class="form-control">
   						</div>
-              <div class="form-group">
-                <label for="username" class="control-label">Description</label>
-                <input type="text" id="username" name="details" class="form-control">
-              </div>
+                     <div class="form-group">
+                      <label for="username" class="control-label">Description</label>
+                      <input type="text" id="username" name="details" class="form-control">
+                     </div>
 
 
                           <div class="form-group">
